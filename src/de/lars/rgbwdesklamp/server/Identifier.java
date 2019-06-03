@@ -23,6 +23,15 @@ public class Identifier {
 	public final static String ANI_SET_SPEED = "ANI_SET_SPEED";
 	public final static String ANI_SET_STOP = "ANI_SET_STOP";
 	
+	//Scenes
+	public final static String SCENE_STOP = "SCENE_STOP";
+	public final static String SCENE_SUNSET = "SCENE_SUNSET";
+	public final static String SCENE_FIRE = "SCENE_FIRE";
+	public final static String SCENE_NORTHERNLIGHTS = "SCENE_NORTHERNLIGHTS";
+	public final static String SCENE_JUNGLE = "SCENE_JUNGLE";
+	public final static String SCENE_SEA = "SCENE_SEA";
+	public final static String SCENE_SPACE = "SCENE_SPACE";
+	
 	//ScreenColor
 	public final static String SC_START = "SC_START";
 	public final static String SC_STOP = "SC_STOP";
