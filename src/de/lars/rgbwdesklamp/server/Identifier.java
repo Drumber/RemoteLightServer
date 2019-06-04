@@ -25,12 +25,6 @@ public class Identifier {
 	
 	//Scenes
 	public final static String SCENE_STOP = "SCENE_STOP";
-	public final static String SCENE_SUNSET = "SCENE_SUNSET";
-	public final static String SCENE_FIRE = "SCENE_FIRE";
-	public final static String SCENE_NORTHERNLIGHTS = "SCENE_NORTHERNLIGHTS";
-	public final static String SCENE_JUNGLE = "SCENE_JUNGLE";
-	public final static String SCENE_SEA = "SCENE_SEA";
-	public final static String SCENE_SPACE = "SCENE_SPACE";
 	
 	//ScreenColor
 	public final static String SC_START = "SC_START";

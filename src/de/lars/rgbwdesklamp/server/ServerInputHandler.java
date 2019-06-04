@@ -148,6 +148,12 @@ public class ServerInputHandler {
 							Integer.parseInt(msg[3]));
 					break;
 					
+				// SCENES
+				case Identifier.SCENE_STOP:
+					Main.setColorLeft(Color.BLACK);
+					Main.setColorRight(Color.BLACK);
+					break;
+					
 				// SETTINGS
 				case Identifier.STNG_MODE_RGB:
 					Main.setRgbMode();
