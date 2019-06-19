@@ -13,7 +13,6 @@ public class WS281xAnimationHandler {
 		RunningLightWS.stop();
 		WipeWS.stop();
 		ScanWS.stop();
-		SnakesWS.stop();
 		
 		Main.setWS281xOff();
 	}
@@ -28,7 +27,6 @@ public class WS281xAnimationHandler {
 		RunningLightWS.setSpeed(speed);
 		WipeWS.setSpeed(speed);
 		ScanWS.setSpeed(speed);
-		SnakesWS.setSpeed(speed);
 	}
 	
 	public static void startRainbow() {
@@ -55,10 +53,5 @@ public class WS281xAnimationHandler {
 		ScanWS.start(speed);
 	}
 	
-	public static void startSnakes() {
-		stop();
-		active = true;
-		SnakesWS.start(speed);
-	}
 
 }

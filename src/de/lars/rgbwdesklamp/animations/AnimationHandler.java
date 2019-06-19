@@ -8,7 +8,7 @@ public class AnimationHandler {
 	
 	private static boolean active;
 	private static String activeAnimation = null;
-	// Insert NEW ANIMATIONS here:
+	
 	public static final String FLASH = "FLASH";
 	public static final String JUMP = "JUMP";
 	public static final String RAINBOW = "RAINBOW";

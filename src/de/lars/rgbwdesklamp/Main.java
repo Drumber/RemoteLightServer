@@ -13,7 +13,8 @@ import de.lars.rgbwdesklamp.gui.MainGUI;
 import de.lars.rgbwdesklamp.server.Server;
 
 public class Main {
-	public final static double VERSION = 0.1;
+	public final static String VERSION = "0.1.0";
+	
 	private static MainGUI gui;
 	private static boolean ws281xMode;
 	private static int pixels = 60, dim = 1;
@@ -122,11 +123,7 @@ public class Main {
 	}
 	
 	public static void clientDisconnected() {
-//		if(ledDriver != null) {
-//			ledDriver.allOff();
-//			ledDriver = null;
-//			System.gc();
-//		}
+		
 	}
 	
 	/*

@@ -42,7 +42,7 @@ public class Server {
 							Object o = ois.readObject();
 							
 							if(o instanceof HashMap<?, ?>) {
-								// Pixel Hashmap (list of ws281x pixel and color
+								// Pixel Hashmap (list of ws281x pixel and color)
 								@SuppressWarnings("unchecked")
 								HashMap<Integer, Color> pixelHash = (HashMap<Integer, Color>) o;
 								ServerInputHandler.handlePixelHash(pixelHash);
@@ -56,7 +56,6 @@ public class Server {
 									start();
 									Main.clientDisconnected();
 								} else {
-									System.out.println("[Server] Message received: " + msg[0]);
 									ServerInputHandler.handle(msg);
 								}	
 							}

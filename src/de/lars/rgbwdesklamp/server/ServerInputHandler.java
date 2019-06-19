@@ -17,6 +17,7 @@ public class ServerInputHandler {
 		WS281x strip = Main.getWS281xStrip();
 		for(int i = 0; i < pixelHash.size(); i++) {
 			Color c = Main.dimWS281x(pixelHash.get(i));
+			
 			strip.setPixelColourRGB(i, c.getRed(), c.getGreen(), c.getBlue());
 		}
 		strip.render();
@@ -70,9 +71,6 @@ public class ServerInputHandler {
 					break;
 				case Identifier.WS_ANI_SCAN:
 					WS281xAnimationHandler.startScan();
-					break;
-				case Identifier.WS_ANI_SNAKES:
-					WS281xAnimationHandler.startSnakes();
 					break;
 				case Identifier.WS_SHIFT_LEFT:
 					Main.shiftWS281xLeft(Integer.parseInt(msg[1]));
