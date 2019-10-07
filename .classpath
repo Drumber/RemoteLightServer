@@ -13,9 +13,6 @@
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-device.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-device-javadoc.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-device-sources.jar"/>
-	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-example.jar"/>
-	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-example-javadoc.jar"/>
-	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-example-sources.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-gpio-extension.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-gpio-extension-javadoc.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/pi4J/pi4j-gpio-extension-sources.jar"/>
