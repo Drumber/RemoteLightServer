@@ -1,4 +1,4 @@
-package de.lars.remotelight.server;
+package de.lars.remotelightserver.server;
 
 public class Identifier {
 	//System

@@ -1,4 +1,4 @@
-package de.lars.remotelight;
+package de.lars.remotelightserver;
 
 import java.io.File;
 import java.io.IOException;

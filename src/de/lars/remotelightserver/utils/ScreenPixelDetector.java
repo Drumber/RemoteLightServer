@@ -1,4 +1,4 @@
-package de.lars.remotelight.utils;
+package de.lars.remotelightserver.utils;
 
 import java.awt.AWTException;
 import java.awt.Color;

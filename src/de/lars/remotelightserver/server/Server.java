@@ -1,4 +1,4 @@
-package de.lars.remotelight.server;
+package de.lars.remotelightserver.server;
 
 import java.awt.Color;
 import java.io.BufferedInputStream;
@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 
-import de.lars.remotelight.Main;
+import de.lars.remotelightserver.Main;
 
 public class Server {
 	
@@ -46,7 +46,7 @@ public class Server {
 								// Pixel Hashmap (list of ws281x pixel and color)
 								@SuppressWarnings("unchecked")
 								HashMap<Integer, Color> pixelHash = (HashMap<Integer, Color>) o;
-								ServerInputHandler.handlePixelHash(pixelHash);
+
 							} else {
 								
 								String[] msg = (String[]) o;
@@ -55,9 +55,9 @@ public class Server {
 									stop();
 									System.out.println("[Server] Restarting...");
 									start();
-									Main.clientDisconnected();
+
 								} else {
-									ServerInputHandler.handle(msg);
+									
 								}	
 							}
 						}
