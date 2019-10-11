@@ -57,6 +57,12 @@ public class Main {
 		return controller;
 	}
 	
+	public void createPixelController(int ledNum) {
+		if(controller != null) {
+			controller.close();
+		}
+		controller = new PixelController(ledNum);
+	}
 
 	/**
 	 * shutdown routine

@@ -21,10 +21,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/diozero-distribution-0.11-SNAPSHOT/diozero-ws281x-java-0.11-SNAPSHOT.jar" sourcepath="D:/Development/APIs_Libs/RaspberryPi/diozero/source/diozero-0.12-SNAPSHOT3/diozero-ws281x-java/src/main/java/com"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/SimpleFileStorage-1.2.0.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/Gson/gson-2.8.5.jar" sourcepath="D:/Development/APIs_Libs/Gson/gson-2.8.5-sources.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/tinylog-2.0.0/tinylog-api-2.0.0.jar" sourcepath="D:/Development/APIs_Libs/tinylog-2.0.0/tinylog-api-2.0.0-sources.jar"/>
 	<classpathentry kind="lib" path="D:/Development/APIs_Libs/tinylog-2.0.0/tinylog-impl-2.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/Development/APIs_Libs/RaspberryPi/snapshot3/diozero-distribution-0.12-SNAPSHOT/diozero-ws281x-java-0.12-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

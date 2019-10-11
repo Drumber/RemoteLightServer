@@ -3,7 +3,7 @@ package de.lars.remotelightserver;
 import java.awt.Color;
 
 import com.diozero.ws281xj.PixelColour;
-import com.diozero.ws281xj.WS281x;
+import com.diozero.ws281xj.rpiws281x.WS281x;
 
 public class PixelController {
 	

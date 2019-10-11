@@ -66,12 +66,11 @@ public class Server {
 								String input = scanner.nextLine();
 								inputPixels = gson.fromJson(input, Color[].class);
 								
-								PixelController controller = Main.getInstance().getPixelController();
-								if(controller == null) {
-									controller = new PixelController(60);
+								if(Main.getInstance().getPixelController() == null) {
+									Main.getInstance().createPixelController(inputPixels.length);
 									Logger.debug("Started new PixelController for " + inputPixels.length + " leds.");
 								}
-								controller.show(inputPixels);
+								Main.getInstance().getPixelController().show(inputPixels);
 							}
 						}
 					} catch (Exception e) {
