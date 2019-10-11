@@ -22,6 +22,7 @@ public class PixelController {
 	public void close() {
 		if(isDriverCreated()) {
 			driver.allOff();
+			driver.render();
 			driver.close();
 		}
 	}
