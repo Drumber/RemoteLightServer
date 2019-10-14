@@ -24,6 +24,7 @@ public class PixelController {
 			driver.allOff();
 			driver.render();
 			driver.close();
+			driver = null;
 		}
 	}
 	

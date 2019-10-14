@@ -58,10 +58,17 @@ public class Main {
 	}
 	
 	public void createPixelController(int ledNum) {
-		if(controller != null) {
+		if(controller != null && controller.isDriverCreated()) {
 			controller.close();
 		}
 		controller = new PixelController(ledNum);
+	}
+	
+	public void closePixelController() {
+		if(controller != null && controller.isDriverCreated()) {
+			controller.close();
+		}
+		controller = null;
 	}
 
 	/**

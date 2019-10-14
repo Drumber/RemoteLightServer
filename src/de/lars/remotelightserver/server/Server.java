@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import org.tinylog.Logger;
@@ -14,7 +15,6 @@ import org.tinylog.Logger;
 import com.google.gson.Gson;
 
 import de.lars.remotelightserver.Main;
-import de.lars.remotelightserver.PixelController;
 
 public class Server {
 	
@@ -62,7 +62,7 @@ public class Server {
 						
 						while(running) {
 							
-							if(scanner.hasNextLine()) {
+							try {
 								String input = scanner.nextLine();
 								inputPixels = gson.fromJson(input, Color[].class);
 								
@@ -71,6 +71,12 @@ public class Server {
 									Logger.debug("Started new PixelController for " + inputPixels.length + " leds.");
 								}
 								Main.getInstance().getPixelController().show(inputPixels);
+							} catch (NoSuchElementException e) {
+								if (autoRestart) {
+									restart();
+								} else {
+									stop();
+								}
 							}
 						}
 					} catch (Exception e) {
@@ -112,11 +118,7 @@ public class Server {
 					serverSocket.close();
 				Logger.info("[Server] Server stopped...");
 				
-				PixelController controller = Main.getInstance().getPixelController();
-				if(controller != null && controller.isDriverCreated()) {
-					controller.close();
-					controller = null;
-				}
+				Main.getInstance().closePixelController();
 			} catch (IOException e) {
 				Logger.error(e, "[Server] Could not stop the Server!");
 			}
