@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 
 import org.pmw.tinylog.Logger;
 
+import de.lars.remotelightserver.Main;
+
 public class CommandHandler {
 	
 	private boolean active;
@@ -48,6 +50,12 @@ public class CommandHandler {
 		
 		case "end":
 			System.exit(0);
+			break;
+			
+		case "info":
+		case "help":
+			System.out.println("RemoteLightServer " + Main.VERSION + " by Lars O.");
+			System.out.println("Type 'end' or 'CTRL + C' to exit...");
 			break;
 
 		default:

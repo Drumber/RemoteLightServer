@@ -81,12 +81,6 @@ public class Server {
 						}
 					} catch (Exception e) {
 						Logger.error(e);
-						
-//						if(autoRestart) {
-//							restart();
-//						} else {
-//							stop();
-//						}
 					}
 				}
 			}, "Server thread").start();
