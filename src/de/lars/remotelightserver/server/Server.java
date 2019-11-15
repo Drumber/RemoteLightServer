@@ -68,9 +68,11 @@ public class Server {
 								
 								if(Main.getInstance().getPixelController() == null) {
 									Main.getInstance().createPixelController(inputPixels.length);
-									Logger.debug("Started new PixelController for " + inputPixels.length + " leds.");
 								}
-								Main.getInstance().getPixelController().show(inputPixels);
+								if(Main.getInstance().getPixelController() != null) {
+									Main.getInstance().getPixelController().show(inputPixels);
+								}
+								
 							} catch (NoSuchElementException e) {
 								if (autoRestart) {
 									restart();

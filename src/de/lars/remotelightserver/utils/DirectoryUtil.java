@@ -10,7 +10,6 @@ import org.tinylog.Logger;
 
 public class DirectoryUtil {
 	
-	public final static String DATA_FILE_NAME = "data.dat";
 	public final static String LOG_DIR_NAME = "logs";
 	
 	public static String getLogsPath() {
@@ -39,6 +38,11 @@ public class DirectoryUtil {
 		} catch (IOException e) {
 			Logger.error(e, "Could not copy log file! (" + logfile.getAbsolutePath() + " -> " + getLogsPath() + newName + ")");
 		}
+	}
+	
+	public static boolean isCreated(String path) {
+		File file = new File(path);
+		return file.exists();
 	}
 
 }

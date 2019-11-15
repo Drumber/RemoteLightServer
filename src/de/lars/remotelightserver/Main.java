@@ -4,20 +4,26 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
 import org.tinylog.Logger;
 import org.tinylog.configuration.Configuration;
 import org.tinylog.provider.ProviderRegistry;
 
+import com.diozero.ws281xj.LedDriverInterface;
+
 import de.lars.remotelightserver.server.Server;
 import de.lars.remotelightserver.utils.CommandHandler;
+import de.lars.remotelightserver.utils.Config;
 import de.lars.remotelightserver.utils.DirectoryUtil;
+import de.lars.remotelightserver.utils.StripTypeUtil;
 
 public class Main {
 
-	public final static String VERSION = "pre-0.2.0.1";
+	public final static String VERSION = "pre0.2.0.4";
 
 	private static Main instance;
+	private Config config;
 	private Server server;
 	private PixelController controller;
 
@@ -32,6 +38,8 @@ public class Main {
 		instance = this;
 		configureLogger();
 		new CommandHandler();
+		
+		config = new Config();
 		
 		server = new Server(true);
 		server.start();
@@ -48,6 +56,10 @@ public class Main {
 	public static Main getInstance() {
 		return instance;
 	}
+	
+	public Config getConfig() {
+		return config;
+	}
 
 	public Server getServer() {
 		return server;
@@ -61,7 +73,37 @@ public class Main {
 		if(controller != null && controller.isDriverCreated()) {
 			controller.close();
 		}
-		controller = new PixelController(ledNum);
+		
+		if(config.isLoaded()) {
+			Properties prop = config.getProperties();
+			int leds = ledNum, pin = 18;
+			String stripType = "";
+			
+			try {
+				if(!prop.getProperty("led_number", "auto").equalsIgnoreCase("auto")) {
+					leds = Integer.parseInt(prop.getProperty("led_number", "60"));
+				}
+				stripType = prop.getProperty("strip_type", "ws2812");
+				pin = Integer.parseInt(prop.getProperty("gpio_pin", "18"));
+			} catch (NumberFormatException e) {
+				Logger.warn("Invalid config value (" + e.getMessage() + "), closing...");
+				close();
+				System.exit(1);
+			}
+			
+			Logger.info("Creating new PixelController: " + stripType + ", " + leds + " pixels, Pin " + pin);
+			LedDriverInterface driver = StripTypeUtil.getLedDriverInterface(stripType, pin, 255, leds);
+			if(driver == null) {
+				Logger.warn("Invalid strip type in config, closing...");
+				close();
+				System.exit(1);
+			}
+			controller = new PixelController(leds, driver);
+			
+		} else {
+			Logger.info("Config not loaded. Use default options: WS2812, " + ledNum + " pixels, Pin 18");
+			controller = new PixelController(ledNum);
+		}
 	}
 	
 	public void closePixelController() {
@@ -83,9 +125,11 @@ public class Main {
 			controller.close();
 		}
 		
-		// copy log file and rename
-		DirectoryUtil.copyAndRenameLog(new File(DirectoryUtil.getLogsPath() + "log.txt"),
-				new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date().getTime()) + ".txt");
+		if(config.isLoaded() && Boolean.parseBoolean(config.getProperties().getProperty("save_logs", "true"))) {
+			// copy log file and rename
+			DirectoryUtil.copyAndRenameLog(new File(DirectoryUtil.getLogsPath() + "log.txt"),
+					new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date().getTime()) + ".txt");
+		}
 
 		try {
 			ProviderRegistry.getLoggingProvider().shutdown();

@@ -2,17 +2,23 @@ package de.lars.remotelightserver;
 
 import java.awt.Color;
 
+import com.diozero.ws281xj.LedDriverInterface;
 import com.diozero.ws281xj.PixelColour;
 import com.diozero.ws281xj.rpiws281x.WS281x;
 
 public class PixelController {
 	
 	private int pixels;
-	private WS281x driver;
+	private LedDriverInterface driver;
 	
 	public PixelController(int pixels) {
 		this.pixels = pixels;
 		driver = new WS281x(18, 255, pixels);
+	}
+	
+	public PixelController(int pixels, LedDriverInterface driver) {
+		this.pixels = pixels;
+		this.driver = driver;
 	}
 	
 	public boolean isDriverCreated() {
