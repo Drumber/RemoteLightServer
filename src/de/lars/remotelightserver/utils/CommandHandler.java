@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import de.lars.remotelightserver.Main;
 

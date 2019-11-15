@@ -11,7 +11,6 @@ import org.tinylog.configuration.Configuration;
 import org.tinylog.provider.ProviderRegistry;
 
 import com.diozero.ws281xj.LedDriverInterface;
-
 import de.lars.remotelightserver.server.Server;
 import de.lars.remotelightserver.utils.CommandHandler;
 import de.lars.remotelightserver.utils.Config;
@@ -20,7 +19,7 @@ import de.lars.remotelightserver.utils.StripTypeUtil;
 
 public class Main {
 
-	public final static String VERSION = "pre0.2.0.4";
+	public final static String VERSION = "pre0.2.0.2";
 
 	private static Main instance;
 	private Config config;
@@ -91,7 +90,7 @@ public class Main {
 				System.exit(1);
 			}
 			
-			Logger.info("Creating new PixelController: " + stripType + ", " + leds + " pixels, Pin " + pin);
+			Logger.info("Creating new PixelController: " + stripType.toUpperCase() + ", " + leds + " pixels, Pin " + pin);
 			LedDriverInterface driver = StripTypeUtil.getLedDriverInterface(stripType, pin, 255, leds);
 			if(driver == null) {
 				Logger.warn("Invalid strip type in config, closing...");

@@ -5,6 +5,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -81,6 +82,7 @@ public class Server {
 								}
 							}
 						}
+					} catch (SocketException se) {
 					} catch (Exception e) {
 						Logger.error(e);
 					}
