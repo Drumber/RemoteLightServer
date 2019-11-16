@@ -25,8 +25,8 @@ import org.tinylog.Logger;
 
 public class Config {
 	
-	public final static String CONFIG_FILE_NAME = "config.propeties";
-	public final static String CONFIG_CLASSPATH = "resourcen/config.propeties";
+	public final static String CONFIG_FILE_NAME = "config.properties";
+	public final static String CONFIG_CLASSPATH = "resourcen/config.properties";
 	
 	private Properties prop;
 	

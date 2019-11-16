@@ -20,6 +20,7 @@ import com.diozero.ws281xj.LedDriverInterface;
 import com.diozero.ws281xj.StripType;
 import com.diozero.ws281xj.apa102.Apa102LedDriver;
 import com.diozero.ws281xj.rpiws281x.WS281x;
+import com.diozero.ws281xj.spi.WS281xSpi;
 
 public class StripTypeUtil {
 	
@@ -33,7 +34,7 @@ public class StripTypeUtil {
 	
 	public static LedDriverInterface getLedDriverInterface(String stripType, int gpioNum, int brightness, int numPixels) {
 		StripType type = null;
-		boolean apa102 = false;
+		boolean apa102 = false, spi = false;
 		
 		switch(stripType.toLowerCase()) {
 		// SK6812
@@ -89,6 +90,12 @@ public class StripTypeUtil {
 		case "ws2812":
 			type = StripType.WS2812;
 			break;
+			
+		// WS2801 (SPI)
+		case "ws2801":
+			type = StripType.WS2812;
+			spi = true;
+			break;
 		
 		// Apa102
 		case "apa102":
@@ -96,13 +103,16 @@ public class StripTypeUtil {
 			break;
 		}
 		
-		if(type == null && !apa102) {
+		if(type == null && !apa102 && !spi) {
 			Logger.error("LED strip type '" + stripType + "' not supported! Please change in " + Config.CONFIG_FILE_NAME + ".");
 			return null;
 		}
-		if(!apa102) {
+		if(!apa102 && !spi) {
 			// create new ws281x driver
 			return new WS281x(DEFAULT_FREQUENCY_WS281X, DEFAULT_DMA_NUM, gpioNum, brightness, numPixels, type);
+		} else if(!apa102 && spi) {
+			// create new ws281xSpi driver
+			return new WS281xSpi(DEFAULT_CONTROLLER, DEFAULT_CHIP_SELECT, type, numPixels, brightness);
 		} else {
 			// create new apa102 driver
 			return new Apa102LedDriver(DEFAULT_CONTROLLER, DEFAULT_CHIP_SELECT, DEFAULT_FREQUENCY_APA102, numPixels, brightness);
