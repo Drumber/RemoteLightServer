@@ -1,5 +1,5 @@
 # RemoteLightServer
-A Server for the [RemoteLight LED control software](https://github.com/Drumber/RemoteLight) to control addressable LED strips with Raspberry Pi or other single-board computers.  
+A Server for the [RemoteLight LED control software](https://github.com/Drumber/RemoteLight) to control addressable LED strips with Raspberry Pi.  
 Various digital LED strips can be controlled with **all Raspberry Pi versions** thanks to Matthew Lewis' [diozero library](https://github.com/mattjlewis/diozero).
 
 ## Supported LED Strips
@@ -22,7 +22,7 @@ Connect a LED strip with a single data line to the Raspberry Pi:
 
 First you need to disable the onboard audio.  
 Create a file `sudo nano /etc/modprobe.d/snd-blacklist.conf` and add this line `blacklist snd_bcm2835`.  
-Then open the configuration file `sudo nano /boot/config.txt` and comment following line out with a *#*:
+Then open the configuration file `sudo nano /boot/config.txt` and comment following line out:
 ```
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
