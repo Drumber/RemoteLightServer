@@ -49,19 +49,19 @@ Enable SPI in the Raspberry Pi config:
 #### Wiring
 LED Strip   | Raspberry Pi  | Power supply
 ----------  | ------------- | ------------
-5V          |               | **+**
+5/12V          |               | **+**
 CK / CLK    | GPIO11 (Pin23)|
 SI / DI     | GPIO10 (Pin19)|
 GND         | GND           | **-**
 
 
 ## Software Installation
-> [Java](https://www.java.com) is required to run the program. Raspberry Pi installation: `sudo apt-get install oracle-java8-jdk`
+> [Java](https://www.java.com) is required. Raspberry Pi installation: `sudo apt-get install oracle-java8-jdk`
 
 > See also here: https://github.com/Drumber/RemoteLight#raspberry-pi
 
-Download the [RemoteLight.jar](https://github.com/Drumber/RemoteLightClient/releases/latest) and the [RemoteLightServer.jar](https://github.com/Drumber/RemoteLightServer/releases/latest).  
-Upload the RemoteLightServer.jar onto your Raspberry Pi (e.g. via [WinSCP](https://winscp.net/eng/download.php)) and start it with `sudo java -jar RemoteLightServer-pre0.2.0.2.jar`.  
+Download the [RemoteLight.jar](https://github.com/Drumber/RemoteLightClient/releases/latest) and [RemoteLightServer.jar](https://github.com/Drumber/RemoteLightServer/releases/latest).  
+Upload the RemoteLightServer.jar to your Raspberry Pi (e.g. via [WinSCP](https://winscp.net/eng/download.php)) and start it with `sudo java -jar RemoteLightServer-pre0.2.0.2.jar`.  
 Stop the server by typing `end` or pressing `Ctrl + C`.  
 It should have created a 'config.properties' file in the same folder. You can edit the file with `sudo nano config.properties` if you want.
 
