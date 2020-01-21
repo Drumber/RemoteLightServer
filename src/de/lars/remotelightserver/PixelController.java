@@ -43,7 +43,7 @@ public class PixelController {
 		if(isDriverCreated()) {
 			driver.allOff();
 			driver.render();
-//			driver.close(); //produces a fatal error
+			driver.close(); //produces a fatal error
 			driver = null;
 		}
 	}
