@@ -28,9 +28,9 @@ public class StripTypeUtil {
 	private static final int DEFAULT_FREQUENCY_WS281X = 800_000;
 	private static final int DEFAULT_DMA_NUM = 5;
 	//Apa102
-	private static final int DEFAULT_CONTROLLER = 2;
+	private static final int DEFAULT_CONTROLLER = 0;
 	private static final int DEFAULT_CHIP_SELECT = 0;
-	private static final int DEFAULT_FREQUENCY_APA102 = 2_000_000;
+	private static final int DEFAULT_FREQUENCY_APA102 = 7800000;
 	
 	public static LedDriverInterface getLedDriverInterface(String stripType, int gpioNum, int brightness, int numPixels) {
 		StripType type = null;
