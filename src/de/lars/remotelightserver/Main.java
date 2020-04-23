@@ -33,7 +33,7 @@ import de.lars.remotelightserver.utils.StripTypeUtil;
 
 public class Main {
 
-	public final static String VERSION = "pre0.2.0.2";
+	public final static String VERSION = "pre0.2.0.4";
 
 	private static Main instance;
 	private Config config;
