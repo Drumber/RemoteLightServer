@@ -25,6 +25,7 @@ import org.tinylog.configuration.Configuration;
 import org.tinylog.provider.ProviderRegistry;
 
 import com.diozero.ws281xj.LedDriverInterface;
+
 import de.lars.remotelightserver.server.Server;
 import de.lars.remotelightserver.utils.CommandHandler;
 import de.lars.remotelightserver.utils.Config;
@@ -33,7 +34,7 @@ import de.lars.remotelightserver.utils.StripTypeUtil;
 
 public class Main {
 
-	public final static String VERSION = "pre0.2.0.4";
+	public final static String VERSION = "pre0.2.0.5-SNAPSHOT";
 
 	private static Main instance;
 	private Config config;
@@ -135,7 +136,7 @@ public class Main {
 			server.stop();
 		}
 		if(controller != null && controller.isDriverCreated()) {
-			controller.close();
+			controller.shutdown();
 		}
 		
 		if(config.isLoaded() && Boolean.parseBoolean(config.getProperties().getProperty("save_logs", "true"))) {
