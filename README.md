@@ -56,7 +56,7 @@ GND         | GND           | **-**
 
 
 ## Software Installation
-> [Java](https://www.java.com) is required. Raspberry Pi installation: `sudo apt-get install oracle-java8-jdk`
+> [Java](https://www.java.com) is required. Raspberry Pi installation: `sudo apt-get install openjdk-8-jdk`
 
 > See also here: https://github.com/Drumber/RemoteLight#raspberry-pi
 
