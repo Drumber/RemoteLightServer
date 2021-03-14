@@ -16,7 +16,7 @@ package de.lars.remotelightserver;
 
 import java.awt.Color;
 
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import com.diozero.ws281xj.LedDriverInterface;
 import com.diozero.ws281xj.PixelColour;
