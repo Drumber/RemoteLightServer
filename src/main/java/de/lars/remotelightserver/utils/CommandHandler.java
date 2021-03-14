@@ -74,8 +74,8 @@ public class CommandHandler {
 			
 		case "info":
 		case "help":
-			System.out.println("RemoteLightServer " + Main.VERSION + " by Lars O.");
-			System.out.println("Type 'end' or 'CTRL + C' to exit...");
+			System.out.println("RemoteLightServer version: " + Main.VERSION);
+			System.out.println("Type 'end' or use 'CTRL + C' to exit...");
 			break;
 
 		default:

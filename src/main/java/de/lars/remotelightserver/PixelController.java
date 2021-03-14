@@ -32,9 +32,6 @@ public class PixelController {
 	
 	private int pixels;
 	private LedDriverInterface driver;
-	// used to show warnings only once
-	private boolean warnWrongPixNum;
-	private boolean warnTooManyPix;
 	
 	public PixelController(int pixels) {
 		this.pixels = pixels;
@@ -82,23 +79,18 @@ public class PixelController {
 		driver.render();
 	}
 	
+	/**
+	 * Check if the received amount of pixels is equal to the pixel number of this controller.
+	 * If not, create a new pixel controller with the received pixel number.
+	 * @param receivedPixNum		amount of received pixels
+	 * @return						true if the pixel number is equal, false otherwise
+	 */
 	private boolean checkValidPixelNumber(int receivedPixNum) {
-		if(getPixelNumber() < receivedPixNum && !warnTooManyPix) {
-			Logger.warn(String.format("Received too many pixels! Expected %d, got %d pixels. Program will continue with the lower pixel number.",
+		if(getPixelNumber() != receivedPixNum) {
+			Logger.warn(String.format("Received wrong pixel number! Expected %d, got %d pixels. Creating new pixel controller...",
 					getPixelNumber(), receivedPixNum));
-			warnTooManyPix = true;
-			return true; // can still show pixels
-			
-		} else if(getPixelNumber() != receivedPixNum && !warnWrongPixNum) {
-			Logger.warn(String.format("Received wrong pixel number! Expected %d, got %d pixels. Can not show pixels!",
-					getPixelNumber(), receivedPixNum));
-			warnWrongPixNum = true;
-			return false;
-		}
-		if(warnWrongPixNum && getPixelNumber() == receivedPixNum) {
-			// reset
-			warnWrongPixNum = false;
-		} else {
+			// create new pixel controller
+			Main.getInstance().createPixelController(receivedPixNum);
 			return false;
 		}
 		return true;

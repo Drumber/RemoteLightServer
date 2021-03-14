@@ -30,6 +30,7 @@ import org.tinylog.Logger;
 import org.tinylog.configuration.Configuration;
 import org.tinylog.provider.ProviderRegistry;
 
+import com.diozero.sbc.LocalSystemInfo;
 import com.diozero.ws281xj.LedDriverInterface;
 
 import de.lars.remotelightserver.server.Server;
@@ -57,6 +58,7 @@ public class Main {
 	public Main() {
 		instance = this;
 		configureLogger();
+		printSystemInfo();
 		new CommandHandler();
 		
 		config = new Config();
@@ -169,6 +171,15 @@ public class Main {
 		} catch (IOException e) {
 			System.out.println("Could not execute shutdown command! \n" + e);
 		}
+	}
+	
+	public void printSystemInfo() {
+		LocalSystemInfo systemInfo = LocalSystemInfo.getInstance();
+		Logger.info(String.format("Board: %s [%s] (%s)",
+				systemInfo.getModel(), systemInfo.getRevision(), systemInfo.getHardware()));
+		Logger.info(String.format("OS: %s [%s] \tJava: %s", systemInfo.getOsName(), systemInfo.getOsArch(),
+				System.getProperty("java.version")));
+		System.out.println();
 	}
 
 	private void configureLogger() {

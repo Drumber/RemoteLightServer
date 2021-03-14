@@ -28,7 +28,6 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import org.tinylog.Logger;
@@ -94,7 +93,7 @@ public class Server {
 									Main.getInstance().getPixelController().show(inputPixels);
 								}
 								
-							} catch (NoSuchElementException e) {
+							} catch (Exception e) {
 								if (autoRestart) {
 									restart();
 								} else {
