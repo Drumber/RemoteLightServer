@@ -32,4 +32,31 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<configuration>
+					<licenseName>apache_v2</licenseName>
+					<inceptionYear>2019</inceptionYear>
+					<organizationName>Lars O.</organizationName>
+					<projectName>RemoteLightServer</projectName>
+					<processStartTag>&gt;===license-start</processStartTag>
+					<processEndTag>&lt;===license-end</processEndTag>
+					<sectionDelimiter>===</sectionDelimiter>
+					<addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+					<trimHeaderLine>true</trimHeaderLine>
+					<emptyLineAfterHeader>true</emptyLineAfterHeader>
+					<canUpdateCopyright>true</canUpdateCopyright>
+					<includes>**/*.java</includes>
+					<roots>
+						<root>src/main/java</root>
+					</roots>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
