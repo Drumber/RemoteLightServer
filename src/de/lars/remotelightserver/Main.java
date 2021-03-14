@@ -34,7 +34,7 @@ import de.lars.remotelightserver.utils.StripTypeUtil;
 
 public class Main {
 
-	public final static String VERSION = "pre0.2.0.5-SNAPSHOT";
+	public final static String VERSION = "pre0.2.0.5";
 
 	private static Main instance;
 	private Config config;
@@ -43,7 +43,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("<=== RemoteLightServer " + VERSION + " by Lars O. ===>");
-		System.out.println(">> Type 'end' or 'CTRL + C' to exit...");
+		System.out.println(">> Type 'end' or use 'CTRL + C' to exit...");
 		
 		new Main();
 	}
