@@ -26,7 +26,6 @@ import org.tinylog.Logger;
 public class Config {
 	
 	public final static String CONFIG_FILE_NAME = "config.properties";
-	public final static String CONFIG_CLASSPATH = "resourcen/config.properties";
 	
 	private Properties prop;
 	
@@ -34,7 +33,7 @@ public class Config {
 		// copy config file from classpath if not exists
 		if(!DirectoryUtil.isCreated(CONFIG_FILE_NAME)) {
 			try {
-				InputStream input = getClass().getClassLoader().getResourceAsStream(CONFIG_CLASSPATH);
+				InputStream input = getClass().getClassLoader().getResourceAsStream(CONFIG_FILE_NAME);
 				Files.copy(input, new File(CONFIG_FILE_NAME).toPath());
 			} catch (IOException e) {
 				Logger.error(e, "Could not copy config from classpath.");
